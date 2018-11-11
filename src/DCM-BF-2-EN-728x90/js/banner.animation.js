@@ -50,10 +50,10 @@ Banner.prototype.createElements = function () {
     retina: true,
     parent: this.banner
   });
-  this.divTop = this.smartObject({
+  this.divLeft = this.smartObject({
     parent: this.banner
   });
-  this.divBottom = this.smartObject({
+  this.divRight = this.smartObject({
     parent: this.banner
   });
   this.logoTop = this.smartObject({
@@ -98,8 +98,8 @@ Banner.prototype.setup = function () {
   this.img2.set({ width: '100%', height: '100%', });
   this.img3.set({ width: '100%', height: '100%', });
   this.div.set({ width: '100%', height: '100%', backgroundColor: "#000" });
-  this.divTop.set({ width: '100%', height: '15%', backgroundColor: "#000" });
-  this.divBottom.set({ width: '100%', height: '23%', bottom: "0", top: 'unset', backgroundColor: "#000" });
+  this.divLeft.set({ width: '18%', height: '100%', backgroundColor: "#000" });
+  this.divRight.set({ width: '28%', height: '100%', right: "0", left: 'unset', backgroundColor: "#000" });
   this.logo.set({ width: '100%', height: '100%', });
 };
 
@@ -129,7 +129,7 @@ Banner.prototype.animate = function () {
     .addLabel('start', 0)
     .add(TweenMax.set(".banner", { autoAlpha: 1 }))
     .add(TweenMax.to(this.logo, 0.1, { autoAlpha: 0, ease: Sine.easeOut, delay: 1 }))
-    .add(TweenMax.to(this.div, 0.8, { xPercent: 100, ease: Sine.easeOut }))
+    .add(TweenMax.to(this.div, 0.9, { xPercent: 100, ease: Sine.easeOut }))
     .add(TweenMax.to(this.div, 0.1, { autoAlpha: 0 }))
     .add(TweenMax.to(this.div, 0.1, { xPercent: -100, }))
     .add(TweenMax.from(this.logoTop, 0.1, { autoAlpha: 0, ease: Sine.easeOut, delay: -1 }))
@@ -150,6 +150,6 @@ Banner.prototype.animate = function () {
     }.bind(_this))
     .add(TweenMax.to(this.txt3, 0.4, { autoAlpha: 0, ease: Sine.easeOut, delay: 2 }))
     .add(TweenMax.to(this.div, 0.1, { autoAlpha: 1, }))
-    .add(TweenMax.to(this.div, 0.8, { xPercent: 0, ease: Sine.easeOut, }))
+    .add(TweenMax.to(this.div, 0.9, { xPercent: 0, ease: Sine.easeOut, }))
     .add(TweenMax.to(this.logo, 0.2, { autoAlpha: 1, ease: Sine.easeOut, delay: 0.4 }))
 };

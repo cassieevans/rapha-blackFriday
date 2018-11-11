@@ -129,7 +129,7 @@ Banner.prototype.animate = function () {
     .addLabel('start', 0)
     .add(TweenMax.set(".banner", { autoAlpha: 1 }))
     .add(TweenMax.to(this.logo, 0.1, { autoAlpha: 0, ease: Sine.easeOut, delay: 1 }))
-    .add(TweenMax.to(this.div, 0.8, { xPercent: 100, ease: Sine.easeOut }))
+    .add(TweenMax.to(this.div, 0.4, { xPercent: 100, ease: Sine.easeOut }))
     .add(TweenMax.to(this.div, 0.1, { autoAlpha: 0 }))
     .add(TweenMax.to(this.div, 0.1, { xPercent: -100, }))
     .add(TweenMax.from(this.logoTop, 0.1, { autoAlpha: 0, ease: Sine.easeOut, delay: -1 }))
@@ -150,6 +150,6 @@ Banner.prototype.animate = function () {
     }.bind(_this))
     .add(TweenMax.to(this.txt3, 0.4, { autoAlpha: 0, ease: Sine.easeOut, delay: 2 }))
     .add(TweenMax.to(this.div, 0.1, { autoAlpha: 1, }))
-    .add(TweenMax.to(this.div, 0.8, { xPercent: 0, ease: Sine.easeOut, }))
+    .add(TweenMax.to(this.div, 0.4, { xPercent: 0, ease: Sine.easeOut, }))
     .add(TweenMax.to(this.logo, 0.2, { autoAlpha: 1, ease: Sine.easeOut, delay: 0.4 }))
 };

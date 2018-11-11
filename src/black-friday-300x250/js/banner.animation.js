@@ -84,8 +84,8 @@ Banner.prototype.setup = function () {
   this.img1.set({ width: '100%', height: '100%' });
   this.img2.set({ width: '100%', height: '100%', });
   this.div.set({ width: '100%', height: '100%', backgroundColor: "#000" });
-  this.divTop.set({ width: '100%', height: '18%', backgroundColor: "#008080" });
-  this.divBottom.set({ width: '100%', height: '27%', top: 'unset', bottom: '0', backgroundColor: "#008080" });
+  this.divTop.set({ width: '100%', height: '18%', backgroundColor: "#000" });
+  this.divBottom.set({ width: '100%', height: '27%', top: 'unset', bottom: '0', backgroundColor: "#000" });
   this.logo.set({ width: '100%', height: '100%', });
 };
 

@@ -43,6 +43,9 @@ Banner.prototype.createElements = function () {
     retina: true,
     parent: this.banner
   });
+  this.divRight = this.smartObject({
+    parent: this.banner
+  });
   this.logoTop = this.smartObject({
     backgroundImage: 'images/logo2.svg',
     retina: true,
@@ -78,6 +81,7 @@ Banner.prototype.setup = function () {
   this.img1.set({ width: '100%', height: '100%' });
   this.img2.set({ width: '100%', height: '100%', });
   this.div.set({ width: '100%', height: '100%', backgroundColor: "#000" });
+  this.divRight.set({ width: '42%', height: '100%', left: 'unset', right: '0', backgroundColor: "#000" });
   this.logo.set({ width: '100%', height: '100%', });
 };
 
@@ -112,10 +116,9 @@ Banner.prototype.animate = function () {
     .add(TweenMax.to(this.div, 0.1, { xPercent: -100, }))
     .add(TweenMax.from(this.logoTop, 0.1, { autoAlpha: 0, ease: Expo.easeIn, delay: -1 }))
     .add(TweenMax.from(this.txt1, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: -0.5 }))
-    .add(TweenMax.to(this.txt1, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: 2 }))
-    .add(TweenMax.to(this.img1, 1, { xPercent: 100, ease: Expo.easeInOut, delay: -0.1 }))
+    .add(TweenMax.from(this.txt2, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: 1 }))
+    .add(TweenMax.to(this.img1, 1, { xPercent: 100, ease: Expo.easeInOut, delay: 1 }))
     .add(TweenMax.from(this.img2, 1, { xPercent: -100, ease: Expo.easeInOut, delay: -1 }))
-    .add(TweenMax.from(this.txt2, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: -0.2 }))
     .call(function () {
 
       if (loops === maxLoops) {
@@ -124,9 +127,9 @@ Banner.prototype.animate = function () {
       loops++;
 
     }.bind(_this))
-    .add(TweenMax.to(this.txt2, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: 2 }))
-    .add(TweenMax.to(this.div, 0.1, { autoAlpha: 1, }))
+    .add(TweenMax.to(this.div, 0.1, { autoAlpha: 1, delay: 2 }))
     .add(TweenMax.to(this.div, 0.8, { xPercent: 0, ease: Expo.easeIn, delay: -0.2 }))
+    .add(TweenMax.to([this.txt1, this.txt2], 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: -0.4 }))
     .add(TweenMax.to(this.logo, 0.1, { autoAlpha: 1, ease: Expo.easeIn }))
 
 

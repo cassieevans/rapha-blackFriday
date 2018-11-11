@@ -43,6 +43,12 @@ Banner.prototype.createElements = function () {
     retina: true,
     parent: this.banner
   });
+  this.divTop = this.smartObject({
+    parent: this.banner
+  });
+  this.divBottom = this.smartObject({
+    parent: this.banner
+  });
   this.logoTop = this.smartObject({
     backgroundImage: 'images/logo2.svg',
     retina: true,
@@ -78,9 +84,10 @@ Banner.prototype.setup = function () {
   this.img1.set({ width: '100%', height: '100%' });
   this.img2.set({ width: '100%', height: '100%', });
   this.div.set({ width: '100%', height: '100%', backgroundColor: "#000" });
+  this.divTop.set({ width: '100%', height: '13%', backgroundColor: "#000" });
+  this.divBottom.set({ width: '100%', height: '22%', top: 'unset', bottom: '0', backgroundColor: "#000" });
   this.logo.set({ width: '100%', height: '100%', });
 };
-
 /**
  * Hide the preloader.
  */

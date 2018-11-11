@@ -14,8 +14,10 @@ Banner.prototype.start = function () {
     'images/logo1.svg',
     'images/txt1.svg',
     'images/txt2.svg',
+    'images/txt3.svg',
     'images/img1.jpg',
     'images/img2.jpg',
+    'images/img3.jpg',
   ];
 
   var _this = this;
@@ -32,6 +34,11 @@ Banner.prototype.start = function () {
  * Create dom elements.
  */
 Banner.prototype.createElements = function () {
+  this.img3 = this.smartObject({
+    backgroundImage: 'images/img3.jpg',
+    retina: true,
+    parent: this.banner
+  });
   this.img2 = this.smartObject({
     backgroundImage: 'images/img2.jpg',
     retina: true,
@@ -42,6 +49,9 @@ Banner.prototype.createElements = function () {
     retina: true,
     parent: this.banner
   });
+  this.divRight = this.smartObject({
+    parent: this.banner
+  });
   this.txt1 = this.smartObject({
     backgroundImage: 'images/txt1.svg',
     retina: true,
@@ -49,6 +59,11 @@ Banner.prototype.createElements = function () {
   });
   this.txt2 = this.smartObject({
     backgroundImage: 'images/txt2.svg',
+    retina: true,
+    parent: this.banner
+  });
+  this.txt3 = this.smartObject({
+    backgroundImage: 'images/txt3.svg',
     retina: true,
     parent: this.banner
   });
@@ -68,9 +83,12 @@ Banner.prototype.createElements = function () {
 Banner.prototype.setup = function () {
   this.txt1.set({ width: '100%', height: '100%', });
   this.txt2.set({ width: '100%', height: '100%', });
+  this.txt3.set({ width: '100%', height: '100%', });
   this.img1.set({ width: '100%', height: '100%' });
   this.img2.set({ width: '100%', height: '100%', });
+  this.img3.set({ width: '100%', height: '100%', });
   this.div.set({ width: '100%', height: '100%', backgroundColor: "#000" });
+  this.divRight.set({ width: '39%', height: '100%', right: "0", left: 'unset', backgroundColor: "#000" });
   this.logo.set({ width: '100%', height: '100%', });
 };
 
@@ -92,7 +110,7 @@ Banner.prototype.animate = function () {
   }
 
   var loops = 0;
-  var maxLoops = 2;
+  var maxLoops = 1;
 
   var banner = document.querySelector('.banner')
 
@@ -108,6 +126,10 @@ Banner.prototype.animate = function () {
     .add(TweenMax.to(this.img1, 1, { yPercent: 100, ease: Expo.easeInOut, delay: -0.1 }))
     .add(TweenMax.from(this.img2, 1, { yPercent: -100, ease: Expo.easeInOut, delay: -1 }))
     .add(TweenMax.from(this.txt2, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: -0.2 }))
+    .add(TweenMax.to(this.txt2, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: 2 }))
+    .add(TweenMax.to(this.img2, 1, { yPercent: 100, ease: Expo.easeInOut, delay: -0.1 }))
+    .add(TweenMax.from(this.img3, 1, { yPercent: -100, ease: Expo.easeInOut, delay: -1 }))
+    .add(TweenMax.from(this.txt3, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: -0.2 }))
     .call(function () {
 
       if (loops === maxLoops) {
@@ -116,10 +138,8 @@ Banner.prototype.animate = function () {
       loops++;
 
     }.bind(_this))
-    .add(TweenMax.to(this.txt2, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: 2 }))
-    .add(TweenMax.to(this.div, 0.1, { autoAlpha: 1, }))
-    .add(TweenMax.to(this.div, 0.8, { xPercent: 0, ease: Expo.easeIn, delay: -0.2 }))
-    .add(TweenMax.to(this.logo, 0.1, { autoAlpha: 1, ease: Expo.easeIn }))
-
-
+    .add(TweenMax.to(this.div, 0.1, { autoAlpha: 1, delay: 2 }))
+    .add(TweenMax.to(this.div, 0.8, { xPercent: 0, ease: Expo.easeIn, delay: -0.1 }))
+    .add(TweenMax.to(this.txt3, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: -0.4 }))
+    .add(TweenMax.to(this.logo, 0.2, { autoAlpha: 1, ease: Expo.easeIn, delay: 0.4 }))
 };

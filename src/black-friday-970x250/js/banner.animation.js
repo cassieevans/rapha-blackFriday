@@ -110,15 +110,14 @@ Banner.prototype.animate = function () {
   this.timeline = new TimelineMax({ repeat: maxLoops, paused: false, })
     .addLabel('start', 0)
     .add(TweenMax.set(".banner", { autoAlpha: 1 }))
-    .add(TweenMax.to(this.logo, 0.1, { autoAlpha: 0, ease: Expo.easeIn, delay: 1 }))
-    .add(TweenMax.to(this.div, 0.8, { xPercent: 100, ease: Expo.easeIn }))
+    .add(TweenMax.to(this.logo, 0.1, { autoAlpha: 0, ease: Sine.easeOut, delay: 1 }))
+    .add(TweenMax.to(this.div, 1, { xPercent: 100, ease: Sine.easeOut }))
     .add(TweenMax.to(this.div, 0.1, { autoAlpha: 0 }))
     .add(TweenMax.to(this.div, 0.1, { xPercent: -100, }))
-    .add(TweenMax.from(this.logoTop, 0.1, { autoAlpha: 0, ease: Expo.easeIn, delay: -1 }))
-    .add(TweenMax.from(this.txt1, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: -0.5 }))
-    .add(TweenMax.from(this.txt2, 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: 1 }))
-    .add(TweenMax.to(this.img1, 1, { xPercent: 100, ease: Expo.easeInOut, delay: 1 }))
-    .add(TweenMax.from(this.img2, 1, { xPercent: -100, ease: Expo.easeInOut, delay: -1 }))
+    .add(TweenMax.from(this.logoTop, 0.1, { autoAlpha: 0, ease: Sine.easeOut, delay: -0.5 }))
+    .add(TweenMax.from(this.txt1, 0.4, { autoAlpha: 0, ease: Sine.easeOut, delay: 0.5 }))
+    .add(TweenMax.from(this.txt2, 0.4, { autoAlpha: 0, ease: Sine.easeOut, delay: 1 }))
+    .add(TweenMax.to(this.img1, 1, { autoAlpha: 0, ease: Sine.easeOut, delay: 1 }))
     .call(function () {
 
       if (loops === maxLoops) {
@@ -128,9 +127,9 @@ Banner.prototype.animate = function () {
 
     }.bind(_this))
     .add(TweenMax.to(this.div, 0.1, { autoAlpha: 1, delay: 2 }))
-    .add(TweenMax.to(this.div, 0.8, { xPercent: 0, ease: Expo.easeIn, delay: -0.2 }))
-    .add(TweenMax.to([this.txt1, this.txt2], 0.4, { autoAlpha: 0, ease: Expo.easeIn, delay: -0.4 }))
-    .add(TweenMax.to(this.logo, 0.1, { autoAlpha: 1, ease: Expo.easeIn }))
+    .add(TweenMax.to(this.div, 1, { xPercent: 0, ease: Sine.easeOut, delay: -0.2 }))
+    .add(TweenMax.to([this.logoTop, this.txt1, this.txt2], 0.4, { autoAlpha: 0, ease: Sine.easeOut, delay: -0.8 }))
+    .add(TweenMax.to(this.logo, 0.1, { autoAlpha: 1, ease: Sine.easeOut }))
 
 
 };

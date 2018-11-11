@@ -62,10 +62,10 @@ Banner.prototype.loadScript = function (url, callback) {
 };
 
 /**
- * Empty placeholder for the Clickthrough/Exit method you require.
+ * Bind Enabler events.
  */
 Banner.prototype.bindEvents = function () {
-  // this.banner.addEventListener('click', function () {
-  //
-  // });
+  this.banner.addEventListener('click', function () {
+    window.open(window.clickTag);
+  });
 };
